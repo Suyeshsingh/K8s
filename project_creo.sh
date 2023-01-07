@@ -2,7 +2,7 @@
 #Commit no. 5
 #Commit date 07 Jan 2023
 
-echo "Please enter the namespace(Please do not use just plain numbers as namespace, api version will not read it.): "
+echo "Please enter the namespace(Please do not use just plain numbers as namespace, if you do so yaml file will not be applied.): "
 echo "then press[ENTER]:"
 read namespace
 
