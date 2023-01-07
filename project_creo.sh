@@ -6,9 +6,9 @@ echo "Please enter the namespace(Please do not use just plain numbers as namespa
 echo "then press[ENTER]:"
 read namespace
 
-echo "Creating namespace $namespace. "
+#echo "Creating namespace $namespace. " #Enable this for testing purpose only.
 
-kubectl create ns $namespace
+#kubectl create ns $namespace #Enable this for testing purpose only.
 
 echo "Do you want to create a secret?"
 read -p "Enter your choice. Yes(y) No(any other key) " choice
@@ -29,7 +29,7 @@ data:
 
 EOF
 
-kubectl apply -f $namespace-secret.yaml
+#kubectl apply -f $namespace-secret.yaml #Enable this for testing purpose only.
 
 else
 echo "Not creating a secret"
