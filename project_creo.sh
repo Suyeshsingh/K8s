@@ -15,6 +15,12 @@ read -p "Enter your choice. Yes(y) No(any other key) " choice
 if [ "$choice" = "y" ]; then
 echo "Creating secret file"
 
+echo "Enter a secret key then press enter:"
+read key
+echo "Enter the secret" $key "value:"
+read value
+evalue=`echo -n $value | base64`
+
 cat >> $namespace-secret.yaml <<EOF
 
 apiVersion: v1
@@ -24,11 +30,9 @@ metadata:
   namespace: $namespace
 type: Opaque
 data:
-  USER_NAME: YWRtaW4=
-  PASSWORD: MWYyZDFlMmU2N2Rm
-
+  $key: $evalue
+  
 EOF
-
 #kubectl apply -f $namespace-secret.yaml #Enable this for testing purpose only.
 
 else
