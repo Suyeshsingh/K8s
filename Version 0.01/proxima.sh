@@ -1,3 +1,4 @@
+#Created and maintained by Suyesh Singh.
 echo "Please enter the namespace: "
 echo "then press[ENTER]:" 
 read namespace
