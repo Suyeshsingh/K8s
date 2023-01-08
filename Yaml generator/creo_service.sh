@@ -6,6 +6,7 @@ echo "Please enter the namespace(Please do not use just plain numbers as namespa
 echo "then press[ENTER]:"
 read namespace
 
+cat >> $service_name-$namespace.yaml <<EOF
 apiVersion: v1
 kind: Service
 metadata:
@@ -23,3 +24,4 @@ spec:
   selector:
     app: finpos-configurations
   type: ClusterIP
+EOF
