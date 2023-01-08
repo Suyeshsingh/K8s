@@ -6,14 +6,23 @@ echo "Please enter the namespace(Please do not use just plain numbers as namespa
 echo "then press[ENTER]:"
 read namespace
 
+echo "Please enter a name for your service"
+read service_name
+
+echo "is your service dicoverable? Enter y for true and any other key for false"
+read -p "Enter your choice. Yes(y) No(any other key) " choice
+if [ "$choice" = "y" ]; then
+$dicover = true
+else 
+$discover = false
 cat >> $service_name-$namespace.yaml <<EOF
 apiVersion: v1
 kind: Service
 metadata:
-  name: finpos-configurations
-  namespace: finpos-dev
+  name: $service_name
+  namespace: $namespace
   annotations:
-    isDiscoverable: 'true'
+    isDiscoverable: '$discover'
     servicePatterns: settings,systems
 spec:
   ports:
