@@ -1,5 +1,5 @@
 #This project is being developed and maintained by Suyesh Singh.
-#Commit no. 09
+#Commit no. 12
 #Commit date 08 Jan 2023
 
 echo "Please enter the namespace(Please do not use just plain numbers as namespace, if you do so yaml file will not be applied.): "
@@ -8,6 +8,24 @@ read namespace
 
 echo "Please enter ingress name:"
 read ingress_name
+
+echo "Please enter domain host (for eg. citytech.workplace.com, you domain host would be workplace.com)"
+read host
+
+echo "please enter your subdomain name(for eg. citytech.workplace.com, your subdomain would be citytech)" 
+read subdomain
+
+echo "Please enter name of the secret you've stored your certificate in"
+read cert
+
+echo "Please enter your path (for eg. citytech.workplace.com/bank-portal/, your path will be bank-protal)"
+read path
+
+echo "Please enter your service name(service to be called by your ingress)"
+read $service
+
+echo "Please enter the port number used by your service:"
+read $port
 
 #echo "Creating namespace $namespace. " #Enable this for testing purpose only.
 
@@ -44,17 +62,22 @@ metadata:
 spec:
   tls:
     - hosts:
-        - citytech.global
-      secretName: new-citytech-cert
+        - $host
+      secretName: $cert
   rules:
-    - host: dev.citytech.global
+    - host: $subdomain.$host
       http:
         paths:
-          - path: /grafana(/|$)(.*)
+          - path: /$path(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service:
-                name: loki-stack-grafana
+                name: $service
                 port:
-                  number: 80
+                  number: $port
 EOF
+
+echo "Your ingress file has been generated. Thank you for using Creo."
+
+
+
