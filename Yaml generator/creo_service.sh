@@ -1,7 +1,7 @@
-#This project is being developed and maintained by Suyesh Singh.
+#This project is being developed and maintained by Suyesh Singh.(github.com/suyeshsingh)
 #Commit no. 09
 #Commit date 08 Jan 2023
-
+#
 echo "Please enter the namespace(Please do not use just plain numbers as namespace, if you do so yaml file will not be applied.): "
 echo "then press[ENTER]:"
 read namespace
@@ -27,7 +27,12 @@ read discover
 discover=`echo -n false`
 fi
 
-cat >> $service_name-$namespace-service.yaml <<EOF
+echo "please enter the port number of your application"
+read port
+echo "Please note by default port and target port will be the same change it later if you need to(usually not required)"
+echo "please enter your app name for service to select(This will be your deployment file)"
+read app
+cat >> $namespace-$service_name-service.yaml <<EOF
 apiVersion: v1
 kind: Service
 metadata:
@@ -40,10 +45,10 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: $port
+      targetPort: $port
   selector:
-    app: finpos-configurations
+    app: $app
   type: ClusterIP
 
 EOF
