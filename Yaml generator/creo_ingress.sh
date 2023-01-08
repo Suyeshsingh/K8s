@@ -1,4 +1,4 @@
-#This project is being developed and maintained by Suyesh Singh.
+#This project is being developed and maintained by Suyesh Singh.(github.com/suyeshsingh)
 #Commit no. 15
 #Commit date 08 Jan 2023
 
