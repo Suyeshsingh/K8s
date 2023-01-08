@@ -1,5 +1,5 @@
 #This project is being developed and maintained by Suyesh Singh.
-#Commit no. 03
+#Commit no. 04
 #Commit date 08 Jan 2023
 
 echo "Please enter the namespace(Please do not use just plain numbers as namespace, if you do so yaml file will not be applied.): "
@@ -23,7 +23,3 @@ spec:
   selector:
     app: finpos-configurations
   type: ClusterIP
-  sessionAffinity: None
-  ipFamilies:
-    - IPv4
-  ipFamilyPolicy: SingleStack
