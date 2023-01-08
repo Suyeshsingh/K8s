@@ -1,5 +1,5 @@
 #This project is being developed and maintained by Suyesh Singh.
-#Commit no. 14
+#Commit no. 15
 #Commit date 08 Jan 2023
 
 echo "Please enter the namespace(Please do not use just plain numbers as namespace, if you do so yaml file will not be applied.): "
