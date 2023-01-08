@@ -1,5 +1,5 @@
 #This project is being developed and maintained by Suyesh Singh.
-#Commit no. 12
+#Commit no. 14
 #Commit date 08 Jan 2023
 
 echo "Please enter the namespace(Please do not use just plain numbers as namespace, if you do so yaml file will not be applied.): "
@@ -22,10 +22,10 @@ echo "Please enter your path (for eg. citytech.workplace.com/bank-portal/, your 
 read path
 
 echo "Please enter your service name(service to be called by your ingress)"
-read $service
+read service
 
 echo "Please enter the port number used by your service:"
-read $port
+read port
 
 #echo "Creating namespace $namespace. " #Enable this for testing purpose only.
 
