@@ -40,4 +40,6 @@ mv /tmp/kube-scheduler.yaml .
 
 echo "Certificate renewal complete"
 
-#This file was created by Suyesh Singh on Apr 7,2022.
+#This file was created by Suyesh Singh on 08 Jan,2023.
+#github.com/suyeshsingh
+#linkedin.com/suyeshsingh
