@@ -1,5 +1,5 @@
 #This project is being developed and maintained by Suyesh Singh.
-#Commit no. 05
+#Commit no. 09
 #Commit date 08 Jan 2023
 
 echo "Please enter the namespace(Please do not use just plain numbers as namespace, if you do so yaml file will not be applied.): "
@@ -12,10 +12,22 @@ read service_name
 echo "is your service dicoverable? Enter y for true and any other key for false"
 read -p "Enter your choice. Yes(y) No(any other key) " choice
 if [ "$choice" = "y" ]; then
-$dicover = true
-else 
-$discover = false
-cat >> $service_name-$namespace.yaml <<EOF
+echo "Press enter to continue"
+read discover
+discover=`echo -n true`
+
+echo "please enter your service pattern, use comma to enter multiple for example setting,system "
+read service_pattern
+echo "Press  enter to continue"
+read service_pattern_key
+service_pattern_key=`echo -n servicePatterns:`
+else
+echo "press enter to continue"
+read discover
+discover=`echo -n false`
+fi
+
+cat >> $service_name-$namespace-service.yaml <<EOF
 apiVersion: v1
 kind: Service
 metadata:
@@ -23,7 +35,7 @@ metadata:
   namespace: $namespace
   annotations:
     isDiscoverable: '$discover'
-    servicePatterns: settings,systems
+    $service_pattern_key $service_pattern
 spec:
   ports:
     - name: http
@@ -33,4 +45,7 @@ spec:
   selector:
     app: finpos-configurations
   type: ClusterIP
+
 EOF
+
+echo "Your service file has been generated. Thank you for using creo."
