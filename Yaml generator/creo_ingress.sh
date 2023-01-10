@@ -77,7 +77,7 @@ spec:
                   number: $port
 EOF
 
-echo "Your ingress file has been generated. Thank you for using Creo."
+echo "Your ingress file has been generated."
 
 
 
