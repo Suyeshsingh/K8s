@@ -53,4 +53,4 @@ spec:
 
 EOF
 
-echo "Your service file has been generated. Thank you for using creo."
+echo "Your service file has been generated."
